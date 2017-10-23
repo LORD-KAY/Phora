@@ -62,14 +62,22 @@ class Phora
 	* params data eg.banks 
 	*/
 
-	public static function wordCap(string $name = NULL){
+	public static function WordCap(string $name = NULL){
 		if (!empty($name) && is_string($name)) {
-			$this->name = ucfirst($name);
-			return $this;	
+			$capitalize = ucfirst($name);
+			return $capitalize;	
 		}
 		else{
 			return "Parameter either empty or not a string";
 		}
+	}
+
+	public static function WordUpper(){
+
+	}
+
+	public static function WordLower(){
+
 	}
 
 
