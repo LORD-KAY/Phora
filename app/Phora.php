@@ -8,6 +8,17 @@
 */
 class Phora
 {
+
+	/*
+	* @var $string_name
+	*/
+	public $name;
+
+	public $length;
+
+	public $limiter;
+
+
 	/**
 	* Truncation function / Word Wrapper
 	* @var params
@@ -43,6 +54,24 @@ class Phora
 			return "First Parameter is either empty or not a string. Provide Correct Parameters";
 		}
 	}
+
+	/**
+	* Capitalize function / WordCap with parameter
+	* @var params
+	* Static Function
+	* params data eg.banks 
+	*/
+
+	public static function wordCap(string $name = NULL){
+		if (!empty($name) && is_string($name)) {
+			$this->name = ucfirst($name);
+			return $this;	
+		}
+		else{
+			return "Parameter either empty or not a string";
+		}
+	}
+
 
 }
  ?>
