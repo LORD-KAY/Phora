@@ -1,0 +1,15 @@
+{
+	"app":"Phora",
+	"description":{
+		"brief":"This Application is developed to enhance text formatting for PHP users or lovers"
+	},
+	"public":true,
+	"version":"1.0.0",
+	"author": "LORD KAY",
+	"github": "github.com/LORD-KAY",
+	"email":"offeilord@gmail.com"
+
+},
+"dependencies":{
+	"php":"^5.4.0"
+}
