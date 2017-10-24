@@ -12,13 +12,15 @@ class Phora
 	/*
 	* @var $string_name
 	*/
-	public $name;
+	public $name = '';
 
-	public $length;
+	protected $length = 0;
 
-	public $limiter;
+	protected $limiter;
 
+	protected $splitter = '';
 
+	protected $converted_data = '';
 	/**
 	* Truncation function / Word Wrapper
 	* @var params
@@ -26,7 +28,7 @@ class Phora
 	* params data eg.banks , length eg.10 , delimiter eg. "...."
 	*/
 
-	public static function WordWrap(string $name = NULL, int $length = 0, string $limiter = "..."){
+	public function WordWrap(string $name = NULL, int $length = 0, string $limiter = "..."){
 		$word = $name;
 		$getLength = strlen($name);
 		$wordSize  = $length;
@@ -51,28 +53,40 @@ class Phora
 				return $word;
 			}
 		}else{
-			return "First Parameter is either empty or not a string. Provide Correct Parameters";
+			return "First Argument is either empty or not a string. Provide Correct Arguments";
 		}
 	}
 
 	/**
 	* Capitalize function / WordCap with parameter
 	* @var params
-	* Static Function
+	* Non Static Function
 	* params data eg.banks 
 	*/
 
-	public static function WordCap(string $name = NULL){
+	public function WordCap(string $name = NULL){
 		if (!empty($name) && is_string($name)) {
-			$capitalize = ucfirst($name);
-			return $capitalize;	
+			$this->converted_data = '';
+			$this->name = preg_split('/[\s,]+/', $name);
+			foreach ($this->name as $value) {
+				$toCap = ucfirst($value);
+				$this->converted_data .= $toCap;
+			}
+			return $this->converted_data;
 		}
 		else{
-			return "Parameter either empty or not a string";
+			return "Argument either empty or not a string";
 		}
 	}
 
-	public static function WordUpper(){
+	/**
+	* Uppercase function / WordUpper with parameter
+	* @var params
+	* Non static Function
+	* params data eg.banks 
+	*/
+
+	public function WordUpper(){
 
 	}
 
