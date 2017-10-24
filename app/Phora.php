@@ -70,7 +70,7 @@ class Phora
 			$this->name = preg_split('/[\s,]+/', $name);
 			foreach ($this->name as $value) {
 				$toCap = ucfirst($value);
-				$this->converted_data .= $toCap;
+				$this->converted_data .= " ".$toCap;
 			}
 			return $this->converted_data;
 		}
@@ -86,8 +86,16 @@ class Phora
 	* params data eg.banks 
 	*/
 
-	public function WordUpper(){
-
+	public function WordUpper(string $name = NULL){
+		if (!empty($name) && is_string($name)) {
+			$this->converted_data = '';
+			$this->name = preg_split('/[\s,]+/', $name);
+			foreach ($this->name as $value) {
+				$toCap = strtoupper($value);
+				$this->converted_data .= " ".$toCap;
+			}
+			return $this->converted_data;
+		}
 	}
 
 	public static function WordLower(){

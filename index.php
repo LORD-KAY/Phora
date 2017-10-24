@@ -5,7 +5,8 @@ include 'app/Phora.php';
 $sample = new Phora();
 
 $data = "acheampong lord, offei";
-$results = $sample->WordWrap($data,14);
-var_dump($results);
+
+$results = $sample->WordUpper($data);
+echo "$results";
 
  ?>
