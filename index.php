@@ -4,9 +4,9 @@ ini_set( 'display_errors', true );
 include 'app/Phora.php';
 $sample = new Phora();
 
-$data = "acheampong lord, offei";
+$data = "";
 
-$results = $sample->WordUpper($data);
-echo "$results";
+$results = $sample->toArray($data);
+var_dump($results[0]);
 
  ?>

@@ -12,7 +12,7 @@ class Phora
 	/*
 	* @var $string_name
 	*/
-	public $name = '';
+	public    $name = '';
 
 	protected $length = 0;
 
@@ -21,6 +21,8 @@ class Phora
 	protected $splitter = '';
 
 	protected $converted_data = '';
+
+	protected $arr_sequence = '';
 	/**
 	* Truncation function / Word Wrapper
 	* @var params
@@ -97,11 +99,49 @@ class Phora
 			return $this->converted_data;
 		}
 	}
-
-	public static function WordLower(){
-
+	/**
+	* Lowercase function / WordLower with parameter
+	* @var params
+	* Non static Function
+	* params data eg.banks 
+	*/
+	public function WordLower(string $name = NULL){
+		if (!empty($name) && is_string($name)) {
+			$this->converted_data = '';
+			$this->name = preg_split('/[\s,]+/', $name);
+			foreach ($this->name as $value) {
+				$toCap = strtolower($value);
+				$this->converted_data .= " ".$toCap;
+			}
+			return $this->converted_data;
+		}
 	}
 
+	
+
+
+	/**
+	* Array Configurations starts here
+	* @var params
+	* array manipulations and configs
+	*/
+
+	public function toArray(string $arr_sequence = NULL, $splitter = " "){
+		if (isset($arr_sequence) && !empty($arr_sequence)) {
+			$this->converted_data = '';
+			 if (isset($splitter) && !empty($splitter)) {
+			 	$this->converted_data = explode($splitter, $arr_sequence);
+			 	return $this->converted_data;
+			 }else{
+			 	$this->converted_data = explode(' ', $arr_sequence);
+			 	return $this->converted_data;
+			 }
+
+		}
+		else{
+			return;
+		}
+	}
 
 }
  ?>
