@@ -4,7 +4,7 @@ ini_set( 'display_errors', true );
 include 'app/Phora.php';
 $sample = new Phora();
 
-$data = "";
+$data = "I am Going to school";
 
 $results = $sample->toArray($data);
 var_dump($results[0]);
